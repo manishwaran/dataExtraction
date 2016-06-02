@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+</head>
+<body>
+<form id="myform" method="post" action="/test">
+	<label>URL : </label><input type="text" name="url" id="url"><br>
+	<button id="btn">Load Url</button>
+</form>
+<div class="row">
+      <div class="col-lg-8 col-sm-6">
+         <div class="bs-example" data-example-id="responsive-embed-16by9-iframe-youtube">
+            <div class="embed-responsive embed-responsive-16by9">
+            test
+               <iframe class="embed-responsive-item" srcdoc=<%- response %> src="#" allowfullscreen="" id="myIframe" sandbox="allow-same-origin allow-scripts">
+                  test
+               </iframe>
+            </div>
+         </div>
+      </div>
+</div>      
+   <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

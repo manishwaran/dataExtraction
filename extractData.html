@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title> Data Extraction Engine </title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+   <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+   <div class="row url-design">
+         <form role = "form" id="myform">
+            <div class = "col-lg-7">
+               <input type = "text" name="url" id="url" class = "form-control" placeholder = " Enter The URL"> 
+            </div>     
+               <button class="btn btn-default dropdown-toggle" type="button" id="btn"> Load Page</button>            
+         </form>
+   </div>
+
+	<div>
+      <div class="col-lg-8 col-sm-8">
+         <div class="url-design">
+            <div class="embed-responsive embed-responsive-16by9">
+               <iframe class="embed-responsive-item"  allowfullscreen="" id="myIframe" sandbox="allow-same-origin allow-scripts"></iframe>
+            </div>
+         </div>
+         <div class="row result-design">
+        	 <p>Result :</p>
+        	 <div id="result"></div>
+      	 </div>
+   	  </div>
+	</div>
+      <div class="col-lg-4 col-sm-4">
+        <div class="panel-body">
+        	<div class="col-lg-2 col-sm-2">        		
+  				<button type="button" class="btn btn-primary" id="add-btn">+</button>
+        	</div>
+            <div >
+            	<button id="run-btn" class="btn btn-info" > Run </button>
+            	<span><button id="clear-btn" class="btn btn-info" > Clear </button></span>
+            </div>
+
+			<div id="parent">
+			</div>
+			<div id="append" class="fragment">
+					<form class = "bs-example bs-example-form" role = "form">
+			            <div d='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;' style="float:right;color:red">X</div>
+			            <div class="row">
+			            	<div class="col-lg-3 col-sm-2">
+			            		<label>CSS Field</label>
+			            	</div>
+			            	<div >
+			            		<input type="text" name="css-input" id="css-input" value="">
+			            	</div>
+			            </div>
+			            <div class="row">
+			            	<div class="col-lg-3 col-sm-2">
+			            		<label>Attribute Field</label>
+			            	</div>
+			            	<div >
+			            		<input type="text" name="attr-input" id="attr-input" value="">
+			            	</div>
+			            </div>
+			        </form>
+				</div>
+			</div>
+        </div>
+      </div>
+   </div>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="script.js"></script>
+  
+</body>
+</html>
