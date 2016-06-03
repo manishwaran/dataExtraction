@@ -19,4 +19,4 @@ tar cvJf node_modules.tar.xz node_modules
 rm -rf node_modules distribution
 
 mkdir distribution
-tar --exclude=src --exclude=.git --exclude=distribution -czf distribution/town-center.tgz .
+tar --exclude=src --exclude=.git --exclude=distribution -czf distribution/dataExtraction.tgz .
