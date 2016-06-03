@@ -8,7 +8,6 @@ nvm use 5.9
 npm version $GO_PIPELINE_LABEL
 
 npm install
-npm run compileOnce
 cd app && npm install
 npm test
 
