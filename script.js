@@ -11,7 +11,7 @@ jQuery.fn.extend({
             var parent = node.parent();
 
             var sameTagSiblings = parent.children(name);
-            if (sameTagSiblings.length > 1) { 
+            if (sameTagSiblings.length > 1) {
                 allSiblings = parent.children();
                 var index = allSiblings.index(realNode) + 1;
                 if (index > 1) {
@@ -31,31 +31,31 @@ var global_id=0;
 var classArray=[],idArray=[],tagArray=[];
 
 
-$(document).ready(function(){	
+$(document).ready(function(){
 var runJson = [];
-$("#btn").click(function(e){    	
-	e.preventDefault();		  
+$("#btn").click(function(e){
+	e.preventDefault();
 	var child = document.getElementById("result");
 	$(child).empty();
 	$('#myIframe').contents().find('body').html("");
-    $.post("/loadwebpage",$("form#myform").serialize(),function(data, status){        	
+    $.post("/loadwebpage",$("form#myform").serialize(),function(data, status){
         $('#myIframe').contents().find('body').html(data);
 	});
     document.getElementById("url").value = "";
 });
 
-$("#add-btn").on("click",function(){	
+$("#add-btn").on("click",function(){
 	var original = document.getElementById("append")
 	var clone = original.cloneNode(true);
-	clone.style.display="block";	
+	clone.style.display="block";
 	global_id=global_id+1;
-	clone.id=original.id+global_id.toString();		
-	document.getElementById("parent").appendChild(clone);	
+	clone.id=original.id+global_id.toString();
+	document.getElementById("parent").appendChild(clone);
 });
 
 
-$('iframe').contents().click(function(e){  
-    var cssSelector=$(e.target).getPath();    	
+$('iframe').contents().click(function(e){
+    var cssSelector=$(e.target).getPath();
 	uniqueCssSelector=cssSelector.replace(/>/g," ");
 	tagArray.push(e.target.tagName);
 	var idAry=e.target.getAttribute("id");
@@ -83,10 +83,9 @@ $('iframe').contents().click(function(e){
         	data.forEach(function(e){
         		var res = document.createElement('p');
         		res.innerHTML=" = > " + e.val ;
-        		document.getElementById("result").appendChild(res);
-        		i++;
-        	});    
-        	runJson=[];    		
+        		document.getElementById("result").appendChild(res);  
+        	});
+        	runJson=[];
 		});
 	});
 
