@@ -8,9 +8,6 @@ nvm use 5.9
 npm version $GO_PIPELINE_LABEL
 
 npm install
-npm test
-
-cd ../
 
 #bundle as artifact
 tar cvJf node_modules.tar.xz node_modules
