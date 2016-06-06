@@ -1,3 +1,4 @@
+import healthCheck from 'connect-health-check'
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser'),
@@ -10,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 app.use(bodyParser.text())
+app.use(healthCheck)
 
 app.use(express.static(__dirname + '/'));
 app.get('/', function (req, res) {

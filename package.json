@@ -14,7 +14,8 @@
     "cheerio": "^0.20.0",
     "ejs": "^2.4.2",
     "express": "^4.13.4",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "connect-health-check": "^0.2.0"
   },
   "engines": {
     "node": ">=5.0 <=5.9",
