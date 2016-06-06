@@ -1,4 +1,4 @@
-import healthCheck from 'connect-health-check'
+var healthCheck = require('connect-health-check');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser'),
