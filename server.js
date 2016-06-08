@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/extractdata', function(req, res){
+app.get('/', function(req, res){
 	res.sendFile(__dirname + "/extractData.html")
 });
 
