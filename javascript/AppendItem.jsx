@@ -1,7 +1,7 @@
 import React from 'react';
-
-var AppendItem = React.createClass({
-  render: function() {
+import ReactDOM from 'react-dom';
+class AppendItem extends React.Component{
+  render() {
     return(
       <div>
         <form role = "form" >
@@ -17,6 +17,6 @@ var AppendItem = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default AppendItem;

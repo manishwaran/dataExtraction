@@ -1,18 +1,19 @@
 import React from 'react';
-
-var ResultBox = React.createClass({
-  getInitialState: function(){
-    return {
-      resultJson: []
-    };
-  },
-  render: function() {
+import ReactDOM from 'react-dom';
+class ResultBox extends React.Component{
+  constructor(props) {
+    super(props);
+      this.state={
+        resultJson: []
+      }
+  }
+  render() {
     var createDivision = function(item,i) {
       return(
         <div>
         <h4>
           <div className="badge" style={{padding:10}}>Result :{i+1}</div>
-          <div className="label label-info" style={{padding:10}} >  {item.val} </div>
+          <div className="text-danger" style={{padding:10,textAlign: 'justify'}} >  {item.val} </div>
         </h4>
         </div>
       );
@@ -22,12 +23,12 @@ var ResultBox = React.createClass({
         <h2>
           <label className="label label-success">Result : </label>
         </h2>
-        <div className="row panel panel-heading" id="result">
+        <div className="row panel panel-heading append-box" id="result">
           {this.props.result.map(createDivision)}
         </div>
       </div>
     );
   }
-});
+}
 
 export default ResultBox;

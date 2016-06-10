@@ -4,37 +4,44 @@ import UrlBox from './UrlBox.jsx';
 import ResultBox from './ResultBox.jsx';
 import LeftPanel from './LeftPanel.jsx';
 import Iframe from './Iframe.jsx';
+import AppendItem from './AppendItem.jsx';
+import cssPath from './utils/css-path'
 
-var App = React.createClass({
-  getInitialState : function(){
-    return {
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
       url:"",
       obj: [],
       jsonInput: [],
-      jsonOutput: []
-    };
-  },
-  onSelect: function(input) {
+      jsonOutput: [],
+    }
+    this.onSelect=this.onSelect.bind(this)
+    this.executeQuery=this.executeQuery.bind(this)
+    this.loadUrl=this.loadUrl.bind(this)
+  }
+  onSelect(input) {
     this.setState({ obj:input });
-  },
-  executeQuery: function(data){
+    console.log(input);
+  }
+  executeQuery(data){
     this.state.jsonInput=data;
     var _this=this
     $.post("/getresult",{data: JSON.stringify(this.state.jsonInput)},function(data, status){
       _this.setState({ jsonOutput:data });
       console.log(_this.state.jsonOutput);
     });
-  },
-  loadUrl : function(submittedUrl){
-    this.state.url=submittedUrl;
+  }
+  loadUrl(submittedUrl){
     this.setState({ jsonInput:[] })
     this.setState({ jsonOutput:[] })
-    alert(this.state.jsonInput.length)
+    this.state.url=submittedUrl;
+    alert(this.state.url)
     $.post("/loadwebpage",{"url":this.state.url},function(data, status){
       $('#myIframe').contents().find('body').html(data);
     });
-  },
-  render : function(){
+  }
+  render(){
      return(
        <div>
         <div className="row">
@@ -56,33 +63,6 @@ var App = React.createClass({
        </div>
      );
    }
-});
+}
 
-jQuery.fn.extend({
-    getPath: function () {
-        var path, node = this;
-        console.log("getPath");
-        while (node.length) {
-            var realNode = node[0], name = realNode.localName;
-            if (!name) break;
-            name = name.toLowerCase();
-
-            var parent = node.parent();
-
-            var sameTagSiblings = parent.children(name);
-            if (sameTagSiblings.length > 1) {
-                var allSiblings = parent.children();
-                var index = allSiblings.index(realNode) + 1;
-                if (index > 1) {
-                    name += ':nth-child(' + index + ')';
-                }
-            }
-
-            path = name + (path ? '>' + path : '');
-            node = parent;
-        }
-        return path;
-    }
-});
-
-ReactDOM.render(<App />,document.getElementById("container"));
+export default App;

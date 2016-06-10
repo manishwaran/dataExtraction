@@ -13,7 +13,7 @@ app.use(healthCheck)
 app.use(express.static(__dirname + '/'));
 
 app.get('/', function(req, res){
-	res.sendFile(__dirname + "/eg1.html")
+	res.sendFile(__dirname + "/index.html")
 });
 
 app.post('/loadwebpage', function(req, res){
@@ -57,5 +57,5 @@ app.post('/getresult',function(req,res){
 })
 
 app.listen(process.env.PORT0, function () {
-  console.log(`Example app listening on port ${process.env.PORT0}`);
+  console.log(`app listening on port ${process.env.PORT0}`);
 });
