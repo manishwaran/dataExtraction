@@ -20515,7 +20515,6 @@
 	    _this.state = {
 	      url: ""
 	    };
-	    // this.props.load=this.props.load.bind(this);
 	    return _this;
 	  }
 

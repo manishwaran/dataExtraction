@@ -36,7 +36,6 @@ class App extends React.Component{
     this.setState({ jsonInput:[] })
     this.setState({ jsonOutput:[] })
     this.state.url=submittedUrl;
-    alert(this.state.url)
     $.post("/loadwebpage",{"url":this.state.url},function(data, status){
       $('#myIframe').contents().find('body').html(data);
     });

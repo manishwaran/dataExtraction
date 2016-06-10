@@ -8,7 +8,6 @@ class UrlBox extends React.Component{
     this.state={
       url: ""
     }
-    // this.props.load=this.props.load.bind(this);
   }
   handleChange(event) {
     this.setState({ url: event.target.value });
