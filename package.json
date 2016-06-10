@@ -4,7 +4,8 @@
   "description": "sending data",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "manish",
   "license": "ISC",
@@ -12,7 +13,6 @@
     "body-parser": "^1.15.1",
     "cheerio": "^0.20.0",
     "connect-health-check": "^0.2.0",
-    "ejs": "^2.4.2",
     "express": "^4.13.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
