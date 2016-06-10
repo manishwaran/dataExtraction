@@ -43,12 +43,10 @@ app.post('/getresult',function(req,res){
 	var runJson = JSON.parse(req.body.data),
 		resultJson = [],
 		$ = cheerio.load(tempResp);
-		console.log(runJson);
 	runJson.forEach(function(item,index){
 		var obj = {};
 		obj.id=item.id;
 		obj.val=$(item.css).text();
-		console.log("result : "+obj.val);
 		resultJson.push(obj);
 	})
 	console.log("result sent "+resultJson);
