@@ -20902,6 +20902,7 @@
 	      var that = this;
 	      $(frame).contents().click(function (e) {
 	        var output = {};
+	        e.preventDefault();
 	        var cssSelector = (0, _cssPath2.default)(e.target, $);
 	        var uniqueCssSelector = cssSelector;
 	        var idAry = e.target.getAttribute("id");
