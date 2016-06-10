@@ -1,31 +1,26 @@
 var healthCheck = require('connect-health-check');
 var express = require('express');
 var app = express();
+var healthCheck = require('connect-health-check');
 var bodyParser = require('body-parser'),
 	request=require('request'),
 	tempResp = "",
 	cheerio = require('cheerio');
-// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
-// parse application/json
 app.use(bodyParser.json())
 app.use(bodyParser.text())
 app.use(healthCheck)
-
 app.use(express.static(__dirname + '/'));
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
 
 app.get('/', function(req, res){
-	res.sendFile(__dirname + "/extractData.html")
+	res.sendFile(__dirname + "/eg1.html")
 });
 
 app.post('/loadwebpage', function(req, res){
-	// console.log(req.body.url)
+	console.log(req.body)
 	tempResp=""
 	var url=req.body.url
+	console.log(url);
 	if(url){
 		var options = {
 			url : url,
@@ -48,16 +43,19 @@ app.post('/getresult',function(req,res){
 	var runJson = JSON.parse(req.body.data),
 		resultJson = [],
 		$ = cheerio.load(tempResp);
+		console.log(runJson);
 	runJson.forEach(function(item,index){
 		var obj = {};
 		obj.id=item.id;
-		obj.val=$(item.cssSelector).text();
+		obj.val=$(item.css).text();
+		console.log("result : "+obj.val);
 		resultJson.push(obj);
 	})
+	console.log("result sent "+resultJson);
 	res.json(resultJson);
 
 })
 
-app.listen(3030, function () {
-  console.log('Example app listening on port 3030!');
+app.listen(process.env.PORT0, function () {
+  console.log(`Example app listening on port ${process.env.PORT0}`);
 });
